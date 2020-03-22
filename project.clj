@@ -9,16 +9,16 @@
                  [b-social/hype "1.0.0"]
                  [b-social/liberator-mixin "0.0.48"]]
 
-  :plugins [[lein-cloverage "1.1.1"]
+  :plugins [[lein-cloverage "1.1.2"]
             [lein-shell "0.5.0"]
             [lein-ancient "0.6.15"]
             [lein-changelog "0.3.2"]
-            [lein-eftest "0.5.8"]
+            [lein-eftest "0.5.9"]
             [lein-codox "0.10.7"]
-            [lein-cljfmt "0.6.4"]
-            [lein-kibit "0.1.6"]
-            [lein-bikeshed "0.5.1"]
-            [jonase/eastwood "0.3.3"]]
+            [lein-cljfmt "0.6.7"]
+            [lein-kibit "0.1.8"]
+            [lein-bikeshed "0.5.2"]
+            [jonase/eastwood "0.3.11"]]
 
   :profiles
   {:shared
@@ -26,7 +26,7 @@
                    [ring/ring-core "1.8.0"]
                    [ring/ring-mock "0.4.0"]
                    [nrepl "0.6.0"]
-                   [eftest "0.5.8"]]}
+                   [eftest "0.5.9"]]}
    :dev
    [:shared {:source-paths ["dev"]
              :eftest       {:multithread? false}}]
