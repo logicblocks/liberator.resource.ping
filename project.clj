@@ -57,13 +57,14 @@
    ["vcs" "tag"]
    ["vcs" "push"]]
 
-  :aliases {"test"      ["with-profile" "test" "eftest" ":all"]
-            "precommit" ["do"
+  :aliases {"build"     ["do"
                          ["check"]
                          ["kibit"]
                          ["cljfmt" "fix"]
                          ["bikeshed"
                           "--name-collisions" "false"
-                          "--long-lines" "false"
-                          "--verbose" "true"]
+                          "--verbose" "true"]]
+            "test"      ["with-profile" "test" "eftest" ":all"]
+            "precommit" ["do"
+                         ["build"]
                          ["test"]]})

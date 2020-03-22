@@ -1,0 +1,23 @@
+version: 2.1
+jobs:
+  build:
+    working_directory: ~/source
+    docker:
+      - image: circle-ci/clojure:openjdk-11-lein-stretch
+    steps:
+      - checkout
+      - run: ./scripts/ci/steps/build.sh
+  test:
+    working_directory: ~/source
+    docker:
+      - image: circle-ci/clojure:openjdk-11-lein-stretch
+    steps:
+      - checkout
+      - run: ./scripts/ci/steps/test.sh
+
+workflows:
+  version: 2
+  pipeline:
+    jobs:
+      - build
+      - test
