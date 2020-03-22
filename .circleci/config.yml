@@ -3,14 +3,14 @@ jobs:
   build:
     working_directory: ~/source
     docker:
-      - image: circle-ci/clojure:openjdk-11-lein-stretch
+      - image: circleci/clojure:openjdk-11-lein-stretch
     steps:
       - checkout
       - run: ./scripts/ci/steps/build.sh
   test:
     working_directory: ~/source
     docker:
-      - image: circle-ci/clojure:openjdk-11-lein-stretch
+      - image: circleci/clojure:openjdk-11-lein-stretch
     steps:
       - checkout
       - run: ./scripts/ci/steps/test.sh
