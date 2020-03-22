@@ -20,4 +20,6 @@ workflows:
   pipeline:
     jobs:
       - build
-      - test
+      - test:
+          requires:
+            - test
