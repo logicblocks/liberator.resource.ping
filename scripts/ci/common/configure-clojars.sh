@@ -9,8 +9,6 @@ PROJECT_DIR="$( cd "$SCRIPT_DIR/../../.." && pwd )"
 
 cd "$PROJECT_DIR"
 
-git crypt unlock
-
 mkdir -p ~/.lein
 cp config/secrets/clojars/credentials.clj.gpg ~/.lein/credentials.clj.gpg
 chmod 0600 ~/.lein/credentials.clj.gpg

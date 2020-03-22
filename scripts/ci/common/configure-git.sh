@@ -4,6 +4,8 @@
 set -e
 set -o pipefail
 
+git crypt unlock
+
 KEY_UID="$(cat config/secrets/ci/gpg.uid)"
 KEY_ID="$(gpg --list-keys --with-colons | \
   grep -C 1 "${KEY_UID}" | \
