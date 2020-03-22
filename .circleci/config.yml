@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/source
     docker:
-      - image: circleci/ruby:2.6.0
+      - image: ruby:2.6.0
     steps:
       - checkout
       - run: ./scripts/ci/common/install-openjdk.sh
@@ -11,7 +11,7 @@ jobs:
   test:
     working_directory: ~/source
     docker:
-      - image: circleci/ruby:2.6.0
+      - image: ruby:2.6.0
     steps:
       - checkout
       - run: ./scripts/ci/common/install-openjdk.sh
