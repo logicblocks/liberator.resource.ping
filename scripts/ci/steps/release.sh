@@ -11,7 +11,7 @@ cd "$PROJECT_DIR"
 
 git pull
 
-./go ./go library:publish:release
+./go library:publish:release
 
 git status
 git push
