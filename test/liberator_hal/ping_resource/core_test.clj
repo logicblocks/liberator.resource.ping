@@ -22,11 +22,11 @@
 (defn build-handler
   ([dependencies] (build-handler dependencies {}))
   ([dependencies options]
-   (let [handler (ping-resource/build-resource-for dependencies options)
-         handler (-> handler
-                   ring-keyword-params/wrap-keyword-params
-                   ring-params/wrap-params)]
-     handler)))
+    (let [handler (ping-resource/build-resource-for dependencies options)
+          handler (-> handler
+                    ring-keyword-params/wrap-keyword-params
+                    ring-params/wrap-params)]
+      handler)))
 
 (deftest has-status-200
   (let [handler (build-handler dependencies)
