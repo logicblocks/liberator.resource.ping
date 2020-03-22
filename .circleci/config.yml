@@ -3,16 +3,18 @@ jobs:
   build:
     working_directory: ~/source
     docker:
-      - image: circleci/clojure:openjdk-11-lein-stretch
+      - image: circleci/ruby:2.6.0
     steps:
       - checkout
+      - run: ./scripts/common/install-openjdk.sh
       - run: ./scripts/ci/steps/build.sh
   test:
     working_directory: ~/source
     docker:
-      - image: circleci/clojure:openjdk-11-lein-stretch
+      - image: circleci/ruby:2.6.0
     steps:
       - checkout
+      - run: ./scripts/common/install-openjdk.sh
       - run: ./scripts/ci/steps/test.sh
 
 workflows:

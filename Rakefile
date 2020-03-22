@@ -1,7 +1,13 @@
 require 'yaml'
-require 'rake_circle_ci'
-require 'rake_github'
 require 'rake_ssh'
+require 'rake_github'
+require 'rake_circle_ci'
+require 'rake_leiningen'
+
+task :default => [:'library:check', :'library:test:unit']
+
+RakeLeiningen.define_installation_tasks(
+    version: '2.9.1')
 
 RakeSSH.define_key_tasks(
     namespace: :deploy_key,
@@ -52,4 +58,13 @@ namespace :pipeline do
       :'circle_ci:ssh_keys:ensure',
       :'github:deploy_keys:ensure'
   ]
+end
+
+namespace :library do
+  RakeLeiningen.define_check_tasks(fix: true)
+
+  namespace :test do
+    RakeLeiningen.define_test_task(
+        name: :unit, type: 'unit', profile: 'test')
+  end
 end

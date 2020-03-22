@@ -14,3 +14,4 @@ pom.xml.asc
 *.iws
 *.ipr
 .DS_Store
+/vendor

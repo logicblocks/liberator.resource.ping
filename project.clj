@@ -15,7 +15,8 @@
             [lein-codox "0.10.7"]
             [lein-cljfmt "0.6.4"]
             [lein-kibit "0.1.6"]
-            [lein-bikeshed "0.5.1"]]
+            [lein-bikeshed "0.5.1"]
+            [jonase/eastwood "0.3.3"]]
 
   :profiles
   {:shared {:dependencies [[org.clojure/clojure "1.10.1"]
@@ -39,6 +40,8 @@
 
   :cljfmt {:indents ^:replace {#".*" [[:inner 0]]}}
 
+  :eastwood {:config-files ["config/linter.clj"]}
+
   :deploy-repositories
   {"releases" {:url "https://repo.clojars.org" :creds :gpg}}
 
@@ -55,16 +58,4 @@
    ["change" "version" "leiningen.release/bump-version"]
    ["vcs" "commit"]
    ["vcs" "tag"]
-   ["vcs" "push"]]
-
-  :aliases {"build"     ["do"
-                         ["check"]
-                         ["kibit"]
-                         ["cljfmt" "fix"]
-                         ["bikeshed"
-                          "--name-collisions" "false"
-                          "--verbose" "true"]]
-            "test"      ["with-profile" "test" "eftest" ":all"]
-            "precommit" ["do"
-                         ["build"]
-                         ["test"]]})
+   ["vcs" "push"]])
