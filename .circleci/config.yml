@@ -6,7 +6,7 @@ jobs:
       - image: circleci/ruby:2.6.0
     steps:
       - checkout
-      - run: ./scripts/common/install-openjdk.sh
+      - run: ./scripts/ci/common/install-openjdk.sh
       - run: ./scripts/ci/steps/build.sh
   test:
     working_directory: ~/source
@@ -14,7 +14,7 @@ jobs:
       - image: circleci/ruby:2.6.0
     steps:
       - checkout
-      - run: ./scripts/common/install-openjdk.sh
+      - run: ./scripts/ci/common/install-openjdk.sh
       - run: ./scripts/ci/steps/test.sh
 
 workflows:
