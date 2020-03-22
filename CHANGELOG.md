@@ -8,6 +8,8 @@ and this project adheres to
 
 
 ## [Unreleased]
+### Added
+- HAL response body to ping resource, including links to self and discovery.
 
 ## [0.1.1] — 2020-03-22
 ### Added
