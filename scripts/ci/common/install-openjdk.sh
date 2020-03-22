@@ -5,4 +5,5 @@ set -e
 set -o pipefail
 
 apt-get update
-apt-get install -y --no-install-recommends openjdk
+apt-cache search jdk
+apt-get install -y --no-install-recommends open-jdk
