@@ -8,6 +8,8 @@ and this project adheres to
 
 
 ## [Unreleased]
+
+## [0.1.1] — 2020-03-22
 ### Added
 - _CHANGELOG.md_.
 
@@ -15,4 +17,5 @@ and this project adheres to
 Released without _CHANGELOG.md_.
 
 
-[Unreleased]: https://github.com/logicblocks/liberator-hal.ping-resource/compare/0.1.1-SNAPSHOT...HEAD
+[0.1.1]: https://github.com/logicblocks/liberator-hal.ping-resource/compare/0.1.1-SNAPSHOT...0.1.1
+[Unreleased]: https://github.com/logicblocks/liberator-hal.ping-resource/compare/0.1.1...HEAD

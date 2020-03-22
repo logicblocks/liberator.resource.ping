@@ -11,7 +11,7 @@ A HAL ping resource for liberator.
 Add the following to your `project.clj` file:
 
 ```clj
-[io.logicblocks/liberator-hal.ping-resource "0.1.0"]
+[io.logicblocks/liberator-hal.ping-resource "0.1.1"]
 ```
 
 ## Documentation
