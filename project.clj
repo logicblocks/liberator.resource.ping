@@ -1,4 +1,4 @@
-(defproject io.logicblocks/liberator-hal.ping-resource "0.1.0-SNAPSHOT"
+(defproject io.logicblocks/liberator-hal.ping-resource "0.1.0"
   :description "A HAL ping resource for liberator"
   :url "https://github.com/logicblocks/liberator-hal.ping-resource"
 
