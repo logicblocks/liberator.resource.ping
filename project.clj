@@ -19,38 +19,43 @@
             [jonase/eastwood "0.3.3"]]
 
   :profiles
-  {:shared     {:dependencies [[org.clojure/clojure "1.10.1"]
-                               [ring/ring-core "1.8.0"]
-                               [ring/ring-mock "0.4.0"]
-                               [nrepl "0.6.0"]
-                               [eftest "0.5.8"]]}
-   :dev        [:shared {:source-paths ["dev"]
-                         :eftest       {:multithread? false}}]
-   :test       [:shared {:eftest {:multithread? false}}]
-   :prerelease {:release-tasks
-                [["shell" "git" "diff" "--exit-code"]
-                 ["change" "version" "leiningen.release/bump-version" "rc"]
-                 ["change" "version" "leiningen.release/bump-version" "release"]
-                 ["vcs" "commit" "Pre-release version %s [skip ci]"]
-                 ["vcs" "tag"]
-                 ["deploy"]]}
-   :release    {:release-tasks
-                [["shell" "git" "diff" "--exit-code"]
-                 ["change" "version" "leiningen.release/bump-version" "release"]
-                 ["codox"]
-                 ["changelog" "release"]
-                 ["shell" "sed" "-E" "-i.bak" "s/\"[0-9]+\\.[0-9]+\\.[0-9]+\"/\"${:version}\"/g" "README.md"]
-                 ["shell" "rm" "-f" "README.md.bak"]
-                 ["shell" "git" "add" "."]
-                 ["vcs" "commit" "Release version %s [skip ci]"]
-                 ["vcs" "tag"]
-                 ["deploy"]
-                 ["change" "version" "leiningen.release/bump-version" "patch"]
-                 ["change" "version" "leiningen.release/bump-version" "rc"]
-                 ["change" "version" "leiningen.release/bump-version" "release"]
-                 ["vcs" "commit" "Pre-release version %s [skip ci]"]
-                 ["vcs" "tag"]
-                 ["vcs" "push"]]}}
+  {:shared
+   {:dependencies [[org.clojure/clojure "1.10.1"]
+                   [ring/ring-core "1.8.0"]
+                   [ring/ring-mock "0.4.0"]
+                   [nrepl "0.6.0"]
+                   [eftest "0.5.8"]]}
+   :dev
+   [:shared {:source-paths ["dev"]
+             :eftest       {:multithread? false}}]
+   :test
+   [:shared {:eftest {:multithread? false}}]
+   :prerelease
+   {:release-tasks
+    [["shell" "git" "diff" "--exit-code"]
+     ["change" "version" "leiningen.release/bump-version" "rc"]
+     ["change" "version" "leiningen.release/bump-version" "release"]
+     ["vcs" "commit" "Pre-release version %s [skip ci]"]
+     ["vcs" "tag"]
+     ["deploy"]]}
+   :release
+   {:release-tasks
+    [["shell" "git" "diff" "--exit-code"]
+     ["change" "version" "leiningen.release/bump-version" "release"]
+     ["codox"]
+     ["changelog" "release"]
+     ["shell" "sed" "-E" "-i.bak" "s/\"[0-9]+\\.[0-9]+\\.[0-9]+\"/\"${:version}\"/g" "README.md"]
+     ["shell" "rm" "-f" "README.md.bak"]
+     ["shell" "git" "add" "."]
+     ["vcs" "commit" "Release version %s [skip ci]"]
+     ["vcs" "tag"]
+     ["deploy"]
+     ["change" "version" "leiningen.release/bump-version" "patch"]
+     ["change" "version" "leiningen.release/bump-version" "rc"]
+     ["change" "version" "leiningen.release/bump-version" "release"]
+     ["vcs" "commit" "Pre-release version %s [skip ci]"]
+     ["vcs" "tag"]
+     ["vcs" "push"]]}}
 
   :cloverage
   {:ns-exclude-regex [#"^user"]}
