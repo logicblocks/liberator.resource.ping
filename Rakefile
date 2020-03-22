@@ -67,4 +67,14 @@ namespace :library do
     RakeLeiningen.define_test_task(
         name: :unit, type: 'unit', profile: 'test')
   end
+
+  namespace :publish do
+    RakeLeiningen.define_release_task(
+        name: :prerelease,
+        profile: 'prerelease')
+
+    RakeLeiningen.define_release_task(
+        name: :release,
+        profile: 'release')
+  end
 end

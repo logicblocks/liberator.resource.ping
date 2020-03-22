@@ -1,4 +1,4 @@
-(defproject io.logicblocks/liberator-hal.ping-resource "0.1.1-SNAPSHOT"
+(defproject io.logicblocks/liberator-hal.ping-resource "0.1.1-RC1"
   :description "A HAL ping resource for liberator"
   :url "https://github.com/logicblocks/liberator-hal.ping-resource"
 
@@ -19,14 +19,37 @@
             [jonase/eastwood "0.3.3"]]
 
   :profiles
-  {:shared {:dependencies [[org.clojure/clojure "1.10.1"]
-                           [ring/ring-core "1.8.0"]
-                           [ring/ring-mock "0.4.0"]
-                           [nrepl "0.6.0"]
-                           [eftest "0.5.8"]]}
-   :dev    [:shared {:source-paths ["dev"]
-                     :eftest       {:multithread? false}}]
-   :test   [:shared {:eftest {:multithread? false}}]}
+  {:shared     {:dependencies [[org.clojure/clojure "1.10.1"]
+                               [ring/ring-core "1.8.0"]
+                               [ring/ring-mock "0.4.0"]
+                               [nrepl "0.6.0"]
+                               [eftest "0.5.8"]]}
+   :dev        [:shared {:source-paths ["dev"]
+                         :eftest       {:multithread? false}}]
+   :test       [:shared {:eftest {:multithread? false}}]
+   :prerelease {:release-tasks
+                [["shell" "git" "diff" "--exit-code"]
+                 ["change" "version" "leiningen.release/bump-version" "rc"]
+                 ["change" "version" "leiningen.release/bump-version" "release"]
+                 ["vcs" "commit" "Pre-release version %s [skip ci]"]
+                 ["vcs" "tag"]
+                 ["deploy"]]}
+   :release    {:release-tasks
+                [["shell" "git" "diff" "--exit-code"]
+                 ["change" "version" "leiningen.release/bump-version" "release"]
+                 ["codox"]
+                 ["changelog" "release"]
+                 ["shell" "sed" "-E" "-i" "" "s/\"[0-9]+\\.[0-9]+\\.[0-9]+\"/\"${:version}\"/g" "README.md"]
+                 ["shell" "git" "add" "."]
+                 ["vcs" "commit" "Release version %s [skip ci]"]
+                 ["vcs" "tag"]
+                 ["deploy"]
+                 ["change" "version" "leiningen.release/bump-version" "patch"]
+                 ["change" "version" "leiningen.release/bump-version" "rc"]
+                 ["change" "version" "leiningen.release/bump-version" "release"]
+                 ["vcs" "commit" "Pre-release version %s [skip ci]"]
+                 ["vcs" "tag"]
+                 ["vcs" "push"]]}}
 
   :cloverage
   {:ns-exclude-regex [#"^user"]}
@@ -43,19 +66,5 @@
   :eastwood {:config-files ["config/linter.clj"]}
 
   :deploy-repositories
-  {"releases" {:url "https://repo.clojars.org" :creds :gpg}}
-
-  :release-tasks
-  [["shell" "git" "diff" "--exit-code"]
-   ["change" "version" "leiningen.release/bump-version" "release"]
-   ["codox"]
-   ["changelog" "release"]
-   ["shell" "sed" "-E" "-i" "" "s/\"[0-9]+\\.[0-9]+\\.[0-9]+\"/\"${:version}\"/g" "README.md"]
-   ["shell" "git" "add" "."]
-   ["vcs" "commit"]
-   ["vcs" "tag"]
-   ["deploy"]
-   ["change" "version" "leiningen.release/bump-version"]
-   ["vcs" "commit"]
-   ["vcs" "tag"]
-   ["vcs" "push"]])
+  {"releases"  {:url "https://repo.clojars.org" :creds :gpg}
+   "snapshots" {:url "https://repo.clojars.org" :creds :gpg}})
