@@ -9,8 +9,6 @@ PROJECT_DIR="$( cd "$SCRIPT_DIR/../../.." && pwd )"
 
 cd "$PROJECT_DIR"
 
-export GIT_TRACE=1
-
 ./go library:publish:prerelease
 
 git status
