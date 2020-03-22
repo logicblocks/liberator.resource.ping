@@ -5,7 +5,9 @@
   :license {:name "The MIT License"
             :url  "https://opensource.org/licenses/MIT"}
 
-  :dependencies [[b-social/liberator-mixin "0.0.48"]]
+  :dependencies [[halboy "5.1.0"]
+                 [b-social/hype "1.0.0"]
+                 [b-social/liberator-mixin "0.0.48"]]
 
   :plugins [[lein-cloverage "1.1.1"]
             [lein-shell "0.5.0"]
