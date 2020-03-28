@@ -7,8 +7,8 @@
    [liberator-mixin.hypermedia.core :as hypermedia-mixin]
    [liberator-mixin.hal.core :as hal-mixin]))
 
-(defn build-definitions-for
-  ([dependencies] (build-definitions-for dependencies {}))
+(defn definitions
+  ([dependencies] (definitions dependencies {}))
   ([{:keys [routes]}
     {:keys [message]
      :or {message "pong"}}]
@@ -19,11 +19,11 @@
           (hype/absolute-url-for request routes :ping))
         {:message message}))}))
 
-(defn build-resource-for
-  ([dependencies] (build-resource-for dependencies {}))
+(defn handler
+  ([dependencies] (handler dependencies {}))
   ([dependencies options]
    (mixin/build-resource
      (json-mixin/with-json-mixin dependencies)
      (hypermedia-mixin/with-hypermedia-mixin dependencies)
      (hal-mixin/with-hal-mixin dependencies)
-     (build-definitions-for dependencies options))))
+     (definitions dependencies options))))
