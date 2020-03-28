@@ -19,8 +19,8 @@
 (def dependencies
   {:routes routes})
 
-(defn handler
-  ([dependencies] (handler dependencies {}))
+(defn resource-handler
+  ([dependencies] (resource-handler dependencies {}))
   ([dependencies options]
    (let [handler (ping-resource/handler dependencies options)
          handler (-> handler
@@ -29,34 +29,34 @@
      handler)))
 
 (deftest has-status-200
-  (let [handler (handler dependencies)
+  (let [handler (resource-handler dependencies)
         request (ring/request :get "/ping")
         result (handler request)]
     (is (= (:status result) 200))))
 
 (deftest includes-pong-message-by-default
-  (let [handler (handler dependencies)
+  (let [handler (resource-handler dependencies)
         request (ring/request :get "/ping")
         result (handler request)
         resource (hal-json/json->resource (:body result))]
     (is (= (hal/get-property resource :message) "pong"))))
 
 (deftest includes-provided-message-when-specified
-  (let [handler (handler dependencies {:message "ok"})
+  (let [handler (resource-handler dependencies {:message "ok"})
         request (ring/request :get "/ping")
         result (handler request)
         resource (hal-json/json->resource (:body result))]
     (is (= (hal/get-property resource :message) "ok"))))
 
 (deftest includes-self-link
-  (let [handler (handler dependencies)
+  (let [handler (resource-handler dependencies)
         request (ring/request :get "http://localhost/ping")
         result (handler request)
         resource (hal-json/json->resource (:body result))]
     (is (= (hal/get-href resource :self) "http://localhost/ping"))))
 
 (deftest includes-discovery-link
-  (let [handler (handler dependencies)
+  (let [handler (resource-handler dependencies)
         request (ring/request :get "http://localhost/ping")
         result (handler request)
         resource (hal-json/json->resource (:body result))]
