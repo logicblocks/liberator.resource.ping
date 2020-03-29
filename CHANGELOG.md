@@ -8,6 +8,8 @@ and this project adheres to
 
 
 ## [Unreleased]
+
+## [0.1.2] — 2020-03-29
 ### Added
 - HAL response body to ping resource, including links to self and discovery.
 
@@ -20,4 +22,5 @@ Released without _CHANGELOG.md_.
 
 
 [0.1.1]: https://github.com/logicblocks/liberator-hal.ping-resource/compare/0.1.1-SNAPSHOT...0.1.1
-[Unreleased]: https://github.com/logicblocks/liberator-hal.ping-resource/compare/0.1.1...HEAD
+[0.1.2]: https://github.com/logicblocks/liberator-hal.ping-resource/compare/0.1.1...0.1.2
+[Unreleased]: https://github.com/logicblocks/liberator-hal.ping-resource/compare/0.1.2...HEAD
