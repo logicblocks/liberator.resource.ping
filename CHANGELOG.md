@@ -27,7 +27,5 @@ Released without _CHANGELOG.md_.
 
 
 [0.1.1]: https://github.com/logicblocks/liberator.resource.ping/compare/0.1.1-SNAPSHOT...0.1.1
-
 [0.1.2]: https://github.com/logicblocks/liberator.resource.ping/compare/0.1.1...0.1.2
-
 [Unreleased]: https://github.com/logicblocks/liberator.resource.ping/compare/0.1.2...HEAD
