@@ -1,13 +1,13 @@
-(defproject io.logicblocks/liberator-hal.ping-resource "0.1.3-RC3"
-  :description "A HAL ping resource for liberator"
-  :url "https://github.com/logicblocks/liberator-hal.ping-resource"
+(defproject io.logicblocks/liberator.resource.ping "0.1.3-RC3"
+  :description "A ping resource for liberator."
+  :url "https://github.com/logicblocks/liberator.resource.ping"
 
   :license {:name "The MIT License"
             :url  "https://opensource.org/licenses/MIT"}
 
-  :dependencies [[halboy "5.1.0"]
-                 [b-social/hype "1.0.0"]
-                 [b-social/liberator-mixin "0.0.48"]]
+  :dependencies [[io.logicblocks/halboy "6.0.0"]
+                 [io.logicblocks/hype "2.0.0"]
+                 [io.logicblocks/liberator.mixin "0.1.0-RC2"]]
 
   :plugins [[lein-cloverage "1.1.2"]
             [lein-shell "0.5.0"]

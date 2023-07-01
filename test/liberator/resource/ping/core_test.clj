@@ -1,4 +1,4 @@
-(ns liberator-hal.ping-resource.core-test
+(ns liberator.resource.ping.core-test
   (:require
    [clojure.test :refer :all]
 
@@ -9,7 +9,7 @@
    [ring.middleware.keyword-params :as ring-keyword-params]
    [ring.middleware.params :as ring-params]
 
-   [liberator-hal.ping-resource.core :as ping-resource]))
+   [liberator.resource.ping.core :as ping-resource]))
 
 (def routes
   [""

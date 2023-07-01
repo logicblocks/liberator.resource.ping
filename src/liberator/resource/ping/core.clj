@@ -1,11 +1,11 @@
-(ns liberator-hal.ping-resource.core
+(ns liberator.resource.ping.core
   (:require
    [halboy.resource :as hal]
    [hype.core :as hype]
-   [liberator-mixin.core :as mixin]
-   [liberator-mixin.json.core :as json-mixin]
-   [liberator-mixin.hypermedia.core :as hypermedia-mixin]
-   [liberator-mixin.hal.core :as hal-mixin]))
+   [liberator.mixin.core :as mixin]
+   [liberator.mixin.json.core :as json-mixin]
+   [liberator.mixin.hypermedia.core :as hypermedia-mixin]
+   [liberator.mixin.hal.core :as hal-mixin]))
 
 (defn definitions
   ([dependencies] (definitions dependencies {}))
