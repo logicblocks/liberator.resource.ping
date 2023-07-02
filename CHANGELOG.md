@@ -8,6 +8,17 @@ and this project adheres to
 
 ## [Unreleased]
 
+### Changed
+
+- This library has been renamed to `liberator.resource.ping`.
+- Rather than providing a message for the ping response body, now a `:body`
+  key can be provided, either as data or a function of context returning data,
+  used as the properties on the resulting ping resource.
+- Rather than `handler` accepting an `options` map, it now accepts an
+  `overrides` map, used as the most specific definition map when building the
+  resource. As such, anything that would normally go into a liberator resource
+  definition map can be provided.
+
 ## [0.1.2] — 2020-03-29
 
 ### Added
