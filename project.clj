@@ -1,4 +1,4 @@
-(defproject io.logicblocks/liberator.resource.ping "0.1.3-RC9"
+(defproject io.logicblocks/liberator.resource.ping "0.1.3-RC10"
   :description "A ping resource for liberator."
   :url "https://github.com/logicblocks/liberator.resource.ping"
 
